@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Novare Enterprises — Web Apps</title>
+
+  <!-- PWA bits -->
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <style>
+    :root {
+      --bg: #000;
+      --card: #111;
+      --ink: #fff;
+      --muted: #cfcfcf;
+      --border: #2b2b2b;
+      --focus: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(6px);
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: inline-block;
+      background: #fff;
+      color: #000;
+      font-weight: 900;
+      line-height: 28px;
+      text-align: center;
+      font-size: 18px;
+      letter-spacing: 0.5px;
+    }
+    .logo-name {
+      font-weight: 700;
+      letter-spacing: 0.6px;
+    }
+
+    /* Grid */
+    main {
+      padding: 32px 22px 60px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .intro {
+      color: var(--muted);
+      margin: 8px 2px 22px;
+      font-size: 0.95rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: var(--focus);
+      box-shadow: 0 12px 28px rgba(255,255,255,0.06);
+    }
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+      letter-spacing: .2px;
+    }
+    .card p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    .card a.button {
+      align-self: start;
+      text-decoration: none;
+      border: 1px solid var(--ink);
+      color: #000;
+      background: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: background .18s ease, color .18s ease;
+    }
+    .card a.button:focus,
+    .card a.button:hover {
+      background: #000;
+      color: #fff;
+      border-color: #fff;
+      outline: none;
+    }
+
+    /* Footer */
+    footer {
+      margin: 36px auto 18px;
+      max-width: 1100px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      padding: 0 22px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Subtle logo (mark + wordmark) -->
+    <a class="logo" href="./" aria-label="Novare Enterprises home">
+      <span class="logo-mark">N</span>
+      <span class="logo-name">Novare Enterprises</span>
+    </a>
+  </header>
+
+  <main>
+    <h1 style="margin:0 2px 6px;font-size:1.6rem;">Web Apps</h1>
+    <p class="intro">Quick access to my projects. Tap a card to launch.</p>
+
+    <section class="grid" role="list">
+      <article class="card" role="listitem">
+        <div>
+          <h2>Accessible Calendar</h2>
+          <p>Dyslexia-friendly, easy-to-use calendar for everyone.</p>
+        </div>
+        <a class="button" href="https://zamanasad404.github.io/AccessibleCalendar/" target="_blank" rel="noopener">Open App</a>
+      </article>
+
+      <article class="card" role="listitem">
+        <div>
+          <h2>Motivational Quote</h2>
+          <p>Daily stoic and motivational quotes with sharing.</p>
+        </div>
+        <a class="button" href="https://zamanasad404.github.io/Motivational-quote/" target="_blank" rel="noopener">Open App</a>
+      </article>
+
+      <article class="card" role="listitem">
+        <div>
+          <h2>Shift Chat</h2>
+          <p>Lightweight, accessible chat — spin up quick convos.</p>
+        </div>
+        <a class="button" href="https://zamanasad404.github.io/ShiftChat/" target="_blank" rel="noopener">Open App</a>
+      </article>
+
+      <article class="card" role="listitem">
+        <div>
+          <h2>Mirror Me</h2>
+          <p>Real-time guidance & mirroring practice companion.</p>
+        </div>
+        <a class="button" href="https://zamanasad404.github.io/Mirror-Me/" target="_blank" rel="noopener">Open App</a>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Novare Enterprises. All rights reserved.
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // PWA: register service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .catch(err => console.warn('SW registration failed:', err));
+      });
+    }
+  </script>
+</body>
+</html>
